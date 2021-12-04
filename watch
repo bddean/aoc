@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+target="$(ls|grep '[0-9][0-9]*\.bqn'|sort -n|tail -n1)"
+( echo ; inotifywait -m -e modify *.bqn ) | while read; do
+   clear
+	out="$(bqn "$target")"
+	# Find the last answer in the output and
+	# copy it to the clipboard.
+	<<<"$out" sed '$!d;s/.*:\s*//;s/\s*$//'\
+		| xclip -selection clipboard -rmlastnl
+	echo "$out"
+done

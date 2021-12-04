@@ -7,6 +7,7 @@ Dec⇐{
 }
 
 # Display the answer
-Ans⇐{day 𝕊 result:
+Ans⇐{day 𝕊 result: {
+	result≡@ ? @ ; # Display nothing for @
 	•Out "D"∾(•Repr day)∾": "∾•Repr result
-}
+}}
