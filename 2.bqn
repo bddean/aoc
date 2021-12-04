@@ -9,13 +9,11 @@ travel←{
 ;	"down"‿n:    0‿n
 ;	"up"‿n:      0‿(-n)
 }¨fields
-•Out "Q2.1:"
-•Show ×´+´travel
+2.1 u.Ans ×´+´travel
 
 horiz‿vert‿aim ← 0‿0‿0 { h‿v‿a 𝕊 field : {
 	"forward"‿n: (h+n)‿(v+a×n)‿a
 ;	"down"‿n:    h‿v‿(a+n)
 ;	"up"‿n:      h‿v‿(a-n)
 } field}˜´ ⌽ fields
-•Out "Q2.2:"
-•Show horiz×vert
+2.2 u.Ans horiz×vert
