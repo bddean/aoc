@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-target="$(ls|grep '[0-9][0-9]*\.bqn'|sort -n|tail -n1)"
+target="$1"
+if ! [ "$target" ]; then
+	target="$(ls|grep '[0-9][0-9]*\.bqn'|sort -n|tail -n1)"
+fi
 ( echo ; inotifywait -m -e modify *.bqn ) | while read; do
-   clear
+	clear
 	out="$(bqn "$target")"
 	# Find the last answer in the output and
 	# copy it to the clipboard.
